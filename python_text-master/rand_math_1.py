@@ -9,6 +9,26 @@ import math
     （规则是每一条字符串的长度为12，单独占一行，并且前四个是字母，后8个是数字）
 '''
 
+def line():
+    # 定义一个空字符串用于拼接字符
+    str_num = ''
+    # 循环前四个随机字母(用ascii对应的值来随机再转换为字母）
+    for i in range(4):
+        # 随机小写字母的ascii值
+        num = random.randrange(97,123)
+        # 将ascii值转换成对应的字母
+        str_s = chr(num)
+        # 依次拼接得到的随机字母
+        str_num = str_num + str_s
+        print(str_num)
+    # 循环后8个随机数字
+    for i in range(8):
+        num = random.randrange(0, 10)
+        str_num = str_num + str(num)
+    # print(str_num)
+    return str_num
+
+
 # 输入函数
 num = input("请输入一个三位数： ")
 #程序随机数
@@ -34,8 +54,16 @@ if num.isdigit() and 100<= int(num) <=999:  #输入函数返回的是字符类�
     if num == random_num:
         print('你中奖了',random_num)
     if num < random_num:
-        print(random_num)
+        # 由于120个字符每行12个可知只需存入10行就可以
+        for i in range(10):
+            str_line = line()
+            # print(str_line)
+            # 执行文件存入操作
+            with open('str_num.txt','a') as f:
+                f.write(str_line+'\n')
 
 
 else:
     print('请按规定输入输入')
+
+
