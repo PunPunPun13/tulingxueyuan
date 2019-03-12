@@ -70,7 +70,7 @@ class GameNum():
                     print('你输入得数比程序随机数小，程序随机数是', random_num)
                     # 由于120个字符每行12个可知只需存入10行就可以
                     for i in range(10):
-                        str_line = GameNum.line()
+                        str_line = GameNum.line(self)
                         # print(str_line)
                         # 执行文件存入操作
                         with open('str_num.txt','a') as f:
