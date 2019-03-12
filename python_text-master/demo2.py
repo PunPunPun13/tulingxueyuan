@@ -1,26 +1,16 @@
-import random
 import rand_math_1
-print(rand_math_1)
+import rand_zimu1
 
 
-# 定义一个变量用于存取初始分数
-source = 0
-while 1:
-    num = input('输入1,2,3三个数字,输入-1结束：')
-    if num == '-1':
-        break
-    rand_num = random.randrange(1, 4)
-    num = int(num)
-    rand_num = int(rand_num)
-    # if num == -1:
-    #     break
-
-
-
-    if num>rand_num:
-        print('输入的数比随机数大')
-    elif num==rand_num:
-        source += 100
-        print('太棒了，分数为',source)
-    elif num<rand_num:
-        print('输入的数比随机数小')
+print('请选择游戏\n1.数字游戏\n2.字母游戏')
+game = input('输入1或2：')
+if game == '1':
+    # 实例化对象
+    game_num = rand_math_1.GameNum()
+    game_num.num_game(0,0)
+elif game =='2':
+    game_zimu = rand_zimu1.GameZiMu()
+    game_zimu.a()
+    game_zimu.k()
+else:
+    print('输入错误')
